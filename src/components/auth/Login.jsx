@@ -1,6 +1,7 @@
 import { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
+// TODO: setup auth router
 const Login = () => {
   const [user, setUser] = useState({});
   const history = useHistory();

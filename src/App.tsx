@@ -1,12 +1,9 @@
-import { useState } from "react";
-
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 
 const App = () => {
-  const [user, setUser] = useState(null);
   return (
     <Router>
       <main className="min-h-screen p-8">
