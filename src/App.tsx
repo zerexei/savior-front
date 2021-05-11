@@ -1,15 +1,12 @@
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
+import Login from "./components/Login";
 
 const App = () => {
   return (
     <Router>
       <main className="min-h-screen p-8">
-       <Header />
+        <Header />
         <div className="p-6 bg-white shadow rounded">
           <Switch>
             <Route exact path="/">
@@ -21,6 +18,7 @@ const App = () => {
             <Route exact path="/contact">
               <h2>Contact</h2>
             </Route>
+            <Route exact path="/login" component={Login}></Route>
           </Switch>
         </div>
       </main>

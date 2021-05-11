@@ -8,7 +8,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex items-center mb-6">
+    <header className="flex items-center mb-6 text-sm text-gray-700">
       {/* BRAND NAME */}
       <div className="brand mr-6">
         <h1 className="text-4xl font-bold">FooBar</h1>
@@ -16,7 +16,7 @@ const Header = () => {
 
       {/* NAVBAR */}
       <div className="flex justify-between items-center w-full">
-        <nav className="flex items-center gap-2 text-gray-700">
+        <nav className="flex items-center gap-2">
           {routes.map((route) => (
             <NavLink exact to={route.to}
               activeClassName="text-purple-400"
@@ -27,15 +27,19 @@ const Header = () => {
         </nav>
 
         {/* AUTH LINKS */}
-        <div className="flex items-center gap-5">
-          <a href="#a" className="p-2 hover:underline hover:text-purple-400">
-            Login
-          </a>
-          <a
-            href="#a"
-            className="py-2 px-3 text-white bg-purple-400 rounded hover:bg-purple-700"
+        <div className="flex items-center gap-2">
+          <NavLink
+            exact
+            activeClassName="text-purple-400"
+            to="/login"
+            className="p-2 hover:underline hover:text-purple-400"
+          > Login
+          </NavLink>
+          <NavLink
+            to="/register"
+            className="p-2 hover:underline hover:text-purple-400"
           > Register
-          </a>
+          </NavLink>
         </div>
       </div>
     </header>
