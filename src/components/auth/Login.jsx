@@ -1,13 +1,35 @@
-import { useRef } from "react";
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Login = () => {
+  const [user, setUser] = useState({});
+  const history = useHistory();
   const usernameRef = useRef();
   const passwordRef = useRef();
- 
-  const handleSubmit = async () => {
-    console.log(usernameRef.current);
-    console.log(passwordRef.current);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const data = {
+        email: usernameRef.current.value,
+        password: passwordRef.current.value,
+      };
+
+      const req = await fetch("http://127.0.0.1:3001/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+
+      setUser(await req.json());
+      console.log(user);
+
+      history.push("/dashboard");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -25,7 +47,7 @@ const Login = () => {
             </Link>
           </p>
         </h2>
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-6">
             <label
               htmlFor="username"

@@ -1,9 +1,12 @@
+import { useState } from "react";
+
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 
 const App = () => {
+  const [user, setUser] = useState(null);
   return (
     <Router>
       <main className="min-h-screen p-8">
@@ -18,6 +21,9 @@ const App = () => {
             </Route>
             <Route exact path="/contact">
               <h2>Contact</h2>
+            </Route>
+            <Route exact path="/dashboard">
+              <h2>Dashboard</h2>
             </Route>
             <Route exact path="/login" component={Login}></Route>
             <Route exact path="/register" component={Register}></Route>
