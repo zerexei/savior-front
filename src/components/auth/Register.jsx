@@ -3,10 +3,10 @@ import { Link } from "react-router-dom";
 const Register = () => {
   return (
     <div>
-      <div className="mx-auto w-2/5 p-6 bg-white shadow rounded">
+      <div className="mx-auto w-2/5 p-6 text-sm bg-white shadow rounded">
         <h2 className="text-3xl font-bold text-center">
           Sign up an account
-          <p className="mb-6 text-sm">
+          <p className="mb-6 text-xs">
             or{" "}
             <Link
               to="/free-trial"
@@ -20,7 +20,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="username"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Username
             </label>
@@ -34,7 +34,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="email"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Email
             </label>
@@ -48,7 +48,7 @@ const Register = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Password
             </label>
@@ -59,10 +59,10 @@ const Register = () => {
               placeholder="password..."
             />
           </div>
-          <div className="mb-6">
+          <div className="mb-1">
             <label
               htmlFor="password-confirmation"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Confirm Password
             </label>
@@ -73,7 +73,7 @@ const Register = () => {
               placeholder="confirm password..."
             />
           </div>
-          <div className="mb-6 text-sm flex justify-end">
+          <div className="mb-6 text-xs flex justify-end">
             <Link
               to="/forgot-password"
               className="text-purple-700 hover:text-purple-500"

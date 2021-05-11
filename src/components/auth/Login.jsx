@@ -35,10 +35,10 @@ const Login = () => {
 
   return (
     <div>
-      <div className="mx-auto w-2/5 p-6 bg-white shadow rounded">
+      <div className="mx-auto w-2/5 p-6 text-sm bg-white shadow rounded">
         <h2 className="text-3xl font-bold text-center">
           Sign in to your account
-          <p className="mb-6 text-sm">
+          <p className="mb-6 text-xs">
             or{" "}
             <Link
               to="/free-trial"
@@ -52,7 +52,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="username"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Username
             </label>
@@ -66,7 +66,7 @@ const Login = () => {
           <div className="mb-6">
             <label
               htmlFor="password"
-              className="block mb-1 text-gray-700 text-sm font-bold"
+              className="block mb-1 text-gray-700 text-xs font-bold"
             >
               Password
             </label>
@@ -78,7 +78,7 @@ const Login = () => {
               placeholder="Password..."
             />
           </div>
-          <div className="mb-6 text-sm flex justify-between">
+          <div className="mb-6 text-xs flex justify-between">
             <label htmlFor="remember-me" className="select-none">
               <input type="checkbox" id="remember-me" className="mr-1" />
               Remember me
