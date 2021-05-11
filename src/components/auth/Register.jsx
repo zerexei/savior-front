@@ -1,6 +1,58 @@
-import { Link } from "react-router-dom";
+import { useRef, useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 
 const Register = () => {
+  const [error, setError] = useState(false);
+
+  const history = useHistory();
+
+  const usernameRef = useRef();
+  const emailRef = useRef();
+  const passwordRef = useRef();
+  const passwordConfirmationRef = useRef();
+
+  const handleClick = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      username: usernameRef.current.value,
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+      passwordConfirmation: passwordConfirmationRef.current.value,
+    };
+
+    if (data.password !== data.passwordConfirmation) {
+      setError("Password and Confirm password didn't match");
+      return;
+    }
+
+    try {
+      const req = await fetch("http://127.0.0.1:3001/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      
+      if (req.status === 500) {
+        return setError(req.statusText);
+      }
+      
+      setError(false);
+      usernameRef.current.value = '';
+      emailRef.current.value = '';
+      passwordRef.current.value = '';
+      passwordConfirmationRef.current.value = '';
+      console.log(await req.json());
+
+      history.push("/dashboard");
+
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       <div className="mx-auto w-2/5 p-6 text-sm bg-white shadow rounded">
@@ -16,7 +68,8 @@ const Register = () => {
             </Link>
           </p>
         </h2>
-        <form>
+        {error && <p className="my-5 text-xs text-red-400">{error}</p>}
+        <form onSubmit={(e) => handleClick(e)}>
           <div className="mb-6">
             <label
               htmlFor="username"
@@ -25,6 +78,7 @@ const Register = () => {
               Username
             </label>
             <input
+              ref={usernameRef}
               id="username"
               className="w-full p-2 border rounded"
               type="text"
@@ -39,6 +93,7 @@ const Register = () => {
               Email
             </label>
             <input
+              ref={emailRef}
               id="email"
               className="w-full p-2 border rounded"
               type="email"
@@ -53,6 +108,7 @@ const Register = () => {
               Password
             </label>
             <input
+              ref={passwordRef}
               id="password"
               className="w-full p-2 border rounded"
               type="password"
@@ -67,6 +123,7 @@ const Register = () => {
               Confirm Password
             </label>
             <input
+              ref={passwordConfirmationRef}
               id="password-confirmation"
               className="w-full p-2 border rounded"
               type="password"
