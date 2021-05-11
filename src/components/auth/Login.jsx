@@ -36,9 +36,9 @@ const Login = () => {
   return (
     <div>
       <div className="mx-auto w-2/5 p-6 bg-white shadow rounded">
-        <h2 className="text-3xl font-bold">
+        <h2 className="text-3xl font-bold text-center">
           Sign in to your account
-          <p className="mb-6 text-center text-sm">
+          <p className="mb-6 text-sm">
             or{" "}
             <Link
               to="/free-trial"
