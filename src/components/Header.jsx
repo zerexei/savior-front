@@ -37,6 +37,7 @@ const Header = () => {
           </NavLink>
           <NavLink
             to="/register"
+            activeClassName="text-purple-400"
             className="p-2 hover:underline hover:text-purple-400"
           > Register
           </NavLink>

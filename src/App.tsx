@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
-import Login from "./components/Login";
+import Login from "./components/auth/Login";
+import Register from "./components/auth/Register";
 
 const App = () => {
   return (
@@ -19,6 +20,7 @@ const App = () => {
               <h2>Contact</h2>
             </Route>
             <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
           </Switch>
         </div>
       </main>
