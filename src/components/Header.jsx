@@ -18,7 +18,7 @@ const Header = () => {
       <div className="flex justify-between w-full">
         <nav className="flex items-center gap-2">
           {routes.map((route) => (
-            <NavLink exact to={route.to}
+            <NavLink key={route.to} exact to={route.to}
               activeClassName="text-purple-400"
               className="p-2 hover:underline hover:text-purple-400"
             > {route.name}

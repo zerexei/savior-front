@@ -1,20 +1,31 @@
+import { useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Login = () => {
+  const usernameRef = useRef();
+  const passwordRef = useRef();
+
+  const handleSubmit = async () => {
+    console.log(usernameRef.current);
+    console.log(passwordRef.current);
+  };
+
   return (
     <div>
       <div className="mx-auto w-2/5 p-6 bg-white shadow rounded">
-        <p className="mb-6 text-center text-sm">
-          <h2 className="text-3xl font-bold">Sign in to your account</h2>
-          or{" "}
-          <Link
-            to="/free-trial"
-            className="text-purple-700 hover:text-purple-500"
-          >
-            Start your 14-day free trial
-          </Link>
-        </p>
-        <form>
+        <h2 className="text-3xl font-bold">
+          Sign in to your account
+          <p className="mb-6 text-center text-sm">
+            or{" "}
+            <Link
+              to="/free-trial"
+              className="text-purple-700 hover:text-purple-500"
+            >
+              Start your 14-day free trial
+            </Link>
+          </p>
+        </h2>
+        <form onSubmit={handleSubmit}>
           <div className="mb-6">
             <label
               htmlFor="username"
@@ -23,6 +34,7 @@ const Login = () => {
               Username
             </label>
             <input
+              ref={usernameRef}
               id="username"
               className="w-full p-2 border rounded"
               type="text"
@@ -36,6 +48,7 @@ const Login = () => {
               Password
             </label>
             <input
+              ref={passwordRef}
               id="password"
               className="w-full p-2 border rounded"
               type="password"
@@ -56,7 +69,9 @@ const Login = () => {
             </Link>
           </div>
           <div className="mb-6">
-            <button className="w-full py-2 px-3 text-white font-bold bg-purple-700 rounded">Sign In</button>
+            <button className="w-full py-2 px-3 text-white font-bold bg-purple-700 rounded">
+              Sign In
+            </button>
           </div>
         </form>
       </div>

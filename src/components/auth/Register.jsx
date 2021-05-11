@@ -4,16 +4,18 @@ const Register = () => {
   return (
     <div>
       <div className="mx-auto w-2/5 p-6 bg-white shadow rounded">
-        <p className="mb-6 text-center text-sm">
-          <h2 className="text-3xl font-bold">Sign up an account</h2>
-          or{" "}
-          <Link
-            to="/free-trial"
-            className="text-purple-700 hover:text-purple-500"
-          >
-            Start your 14-day free trial
-          </Link>
-        </p>
+        <h2 className="text-3xl font-bold">
+          Sign up an account
+          <p className="mb-6 text-center text-sm">
+            or{" "}
+            <Link
+              to="/free-trial"
+              className="text-purple-700 hover:text-purple-500"
+            >
+              Start your 14-day free trial
+            </Link>
+          </p>
+        </h2>
         <form>
           <div className="mb-6">
             <label
