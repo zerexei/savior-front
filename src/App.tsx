@@ -7,7 +7,7 @@ const App = () => {
     <Router>
       <main className="min-h-screen p-8">
         <Header />
-        <div className="p-6 bg-white shadow rounded">
+        <div className="p-6">
           <Switch>
             <Route exact path="/">
               <h2>Home</h2>

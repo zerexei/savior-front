@@ -8,14 +8,14 @@ const Header = () => {
   ];
 
   return (
-    <header className="flex items-center mb-6 text-sm text-gray-700">
+    <header className="flex items-center mb-3 p-6 text-sm text-gray-700 bg-white shadow rounded">
       {/* BRAND NAME */}
       <div className="brand mr-6">
         <h1 className="text-4xl font-bold">FooBar</h1>
       </div>
 
       {/* NAVBAR */}
-      <div className="flex justify-between items-center w-full">
+      <div className="flex justify-between w-full">
         <nav className="flex items-center gap-2">
           {routes.map((route) => (
             <NavLink exact to={route.to}
@@ -27,7 +27,7 @@ const Header = () => {
         </nav>
 
         {/* AUTH LINKS */}
-        <div className="flex items-center gap-2">
+        <div className="flex gap-2">
           <NavLink
             exact
             activeClassName="text-purple-400"
