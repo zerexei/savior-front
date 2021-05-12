@@ -1,9 +1,39 @@
+import { useRef } from "react";
+import { useParams, useHistory } from "react-router-dom";
+
 const UpdateForm = () => {
+  const titleRef = useRef();
+  const bodyRef = useRef();
+  const history = useHistory();
+  const { id } = useParams();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const data = {
+      title: titleRef.current.value,
+      body: bodyRef.current.value,
+    };
+
+    const req = await fetch(`http://127.0.0.1:3001/posts/${id}`, {
+      method: "PUT",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    if (req.status === 200) {
+      console.log(await req.json());
+      history.push("/posts");
+    }
+  };
+
   return (
     <div>
       <div className="mx-auto w-2/5 p-6 text-sm bg-white shadow rounded">
         <h2 className="text-3xl mb-6 font-bold text-center">Update a Post</h2>
-        <form>
+        <form onSubmit={(e) => handleSubmit(e)}>
           <div className="mb-6">
             <label
               htmlFor="title"
@@ -12,6 +42,7 @@ const UpdateForm = () => {
               Title
             </label>
             <input
+              ref={titleRef}
               id="title"
               type="text"
               className="w-full p-2 border rounded"
@@ -25,6 +56,7 @@ const UpdateForm = () => {
               Body
             </label>
             <textarea
+              ref={bodyRef}
               id="body"
               cols="30"
               rows="10"

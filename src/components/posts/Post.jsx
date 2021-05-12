@@ -19,7 +19,7 @@ const Post = () => {
       <div className="flex justify-between">
         <h2 className="mb-2 text-2xl font-bold text-purple-700">Foo Bar Baz</h2>
         <div className="text-xs">
-          <Link to="/posts/1/edit" className="text-blue-400">Edit</Link>
+          <Link to={`/posts/${id}/edit`} className="text-blue-400">Edit</Link>
           <span className="ml-2 text-red-400">Delete</span>
         </div>
       </div>
