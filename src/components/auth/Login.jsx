@@ -23,7 +23,7 @@ const Login = () => {
         },
         body: JSON.stringify(data),
       });
-
+      
       if(req.status === 200) {
         setUser(await req.json());
         history.push("/dashboard");
