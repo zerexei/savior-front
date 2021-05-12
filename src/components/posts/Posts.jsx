@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 const Posts = () => {
   const [posts, setPosts] = useState([]);
@@ -20,9 +21,11 @@ const Posts = () => {
         {posts.map((post) => {
           return (
             <div key={post.id} className="w-1/4 p-4">
-              <h2 className="mb-2 text-xl font-bold text-purple-700">
-                {post.title}
-              </h2>
+              <Link to={`/post/${post.id}`}>
+                <h2 className="mb-2 text-xl font-bold text-purple-700">
+                  {post.title}
+                </h2>
+              </Link>
               <p className="text-xs">{post.body}</p>
             </div>
           );

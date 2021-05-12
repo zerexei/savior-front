@@ -1,10 +1,15 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
+
+// AUTH
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
-import Posts from "./components/posts/Posts";
-import Dashboard from "./components/Dashboard";
+
+// COMPONENTS
 import Welcome from "./components/Welcome";
+import Dashboard from "./components/Dashboard";
+import Post from "./components/posts/Post";
+import Posts from "./components/posts/Posts";
 
 const App = () => {
   return (
@@ -22,6 +27,7 @@ const App = () => {
             {/* PAGES */}
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/posts" component={Posts} />
+            <Route exact path="/post" component={Post} />
             <Route exact path="/contact">
               <h2>Contact</h2>
             </Route>
