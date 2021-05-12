@@ -23,9 +23,10 @@ const Login = () => {
         },
         body: JSON.stringify(data),
       });
-      
-      if(req.status === 200) {
+
+      if (req.status === 200) {
         setUser(await req.json());
+        console.log(user);
         history.push("/dashboard");
       }
     } catch (error) {
