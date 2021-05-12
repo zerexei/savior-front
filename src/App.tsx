@@ -2,6 +2,9 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "./components/Header";
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
+import Posts from "./components/posts/Posts";
+import Dashboard from "./components/Dashboard";
+import Welcome from "./components/Welcome";
 
 const App = () => {
   return (
@@ -10,20 +13,18 @@ const App = () => {
         <Header />
         <div className="p-6">
           <Switch>
-            <Route exact path="/">
-              <h2>Home</h2>
-            </Route>
-            <Route exact path="/about">
-              <h2>About</h2>
-            </Route>
+            <Route exact path="/" component={Welcome} />
+
+            {/* AUTH */}
+            <Route exact path="/login" component={Login}></Route>
+            <Route exact path="/register" component={Register}></Route>
+
+            {/* PAGES */}
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/posts" component={Posts} />
             <Route exact path="/contact">
               <h2>Contact</h2>
             </Route>
-            <Route exact path="/dashboard">
-              <h2>Dashboard</h2>
-            </Route>
-            <Route exact path="/login" component={Login}></Route>
-            <Route exact path="/register" component={Register}></Route>
           </Switch>
         </div>
       </main>

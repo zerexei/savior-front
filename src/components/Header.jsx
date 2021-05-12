@@ -3,7 +3,8 @@ import { NavLink } from "react-router-dom";
 const Header = () => {
   const routes = [
     { name: "Home", to: "/" },
-    { name: "About", to: "/about" },
+    { name: "Dashboard", to: "/dashboard" },
+    { name: "Posts", to: "/posts" },
     { name: "Contact", to: "/contact" },
   ];
 
