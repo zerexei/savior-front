@@ -27,7 +27,7 @@ const App = () => {
             {/* PAGES */}
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/posts" component={Posts} />
-            <Route exact path="/post" component={Post} />
+            <Route exact path="/posts/:id" component={Post} />
             <Route exact path="/contact">
               <h2>Contact</h2>
             </Route>

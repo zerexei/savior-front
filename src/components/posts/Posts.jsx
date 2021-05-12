@@ -21,7 +21,7 @@ const Posts = () => {
         {posts.map((post) => {
           return (
             <div key={post.id} className="w-1/4 p-4">
-              <Link to={`/post/${post.id}`}>
+              <Link to={`/posts/${post.id}`}>
                 <h2 className="mb-2 text-xl font-bold text-purple-700">
                   {post.title}
                 </h2>
