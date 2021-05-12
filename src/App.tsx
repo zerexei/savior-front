@@ -10,6 +10,7 @@ import Welcome from "./components/Welcome";
 import Dashboard from "./components/Dashboard";
 import Post from "./components/posts/Post";
 import Posts from "./components/posts/Posts";
+import UpdatePost from "./pages/posts/UpdatePost";
 
 const App = () => {
   return (
@@ -28,6 +29,9 @@ const App = () => {
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/posts/:id" component={Post} />
+            <Route exact path="/posts/:id/edit" component={UpdatePost} />
+
+
             <Route exact path="/contact">
               <h2>Contact</h2>
             </Route>
