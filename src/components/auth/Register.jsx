@@ -35,19 +35,17 @@ const Register = () => {
         body: JSON.stringify(data),
       });
       
-      if (req.status === 500) {
-        return setError(req.statusText);
+      if (req.status === 201) {
+        setError(false);
+        console.log(await req.json());
+        history.push("/dashboard");
+        // usernameRef.current.value = '';
+        // emailRef.current.value = '';
+        // passwordRef.current.value = '';
+        // passwordConfirmationRef.current.value = '';
       }
-      
-      setError(false);
-      usernameRef.current.value = '';
-      emailRef.current.value = '';
-      passwordRef.current.value = '';
-      passwordConfirmationRef.current.value = '';
-      console.log(await req.json());
-
-      history.push("/dashboard");
-
+  
+      setError(req.statusText);
     } catch (error) {
       console.log(error);
     }

@@ -24,10 +24,10 @@ const Login = () => {
         body: JSON.stringify(data),
       });
 
-      setUser(await req.json());
-      console.log(user);
-
-      history.push("/dashboard");
+      if(req.status === 200) {
+        setUser(await req.json());
+        history.push("/dashboard");
+      }
     } catch (error) {
       console.log(error);
     }
